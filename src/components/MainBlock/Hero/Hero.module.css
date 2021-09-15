@@ -1,0 +1,9 @@
+.hero {
+    grid-column: span 2;
+    box-shadow: -10px -10px 0 0 var(--main);
+    border-radius: 15px;
+  }
+
+.hero img {
+  border-radius: 15px;
+}
