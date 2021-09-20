@@ -1,14 +1,14 @@
 import React from 'react';
-import Hero from "./Hero/Hero";
-import Content from "./Content/Content";
-import s from './MainBlock.module.css';
+import s from './MainBlock.module.scss';
+import Hero from './../Hero/Hero';
+import Content from './../Content/Content';
 
 const MainBlock = () => {
   return (
-    <main className={s.main}>
+    <section className={s.main}>
       <Hero />
       <Content />
-    </main>
+    </section>
   );
 }
 

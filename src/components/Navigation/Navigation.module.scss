@@ -1,6 +1,10 @@
+@import './../../variables.scss';
+
 .navList {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
   padding: 0;
   list-style: none;
   font-size: 14px;
@@ -11,9 +15,14 @@
   align-items: center;
   height: 24px;
   margin-right: 5px;
-  color: var(--main);
+  padding-right: 8px;
+  padding-left: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  color: $main;
   border-radius: 100px;
-  background-color: rgba(232, 33, 39, 0.1);
+  background-color: $main_bcg;
 }
 
 .navItem:last-child {
@@ -21,7 +30,8 @@
 }
 
 .navItem::before {
-  color: var(--main);
+  color: $main;
   content: "•";
+  font-size: 25px;
   padding-right: 5px;
 }

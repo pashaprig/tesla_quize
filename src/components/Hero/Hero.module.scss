@@ -1,6 +1,8 @@
+@import './../../variables.scss';
+
 .hero {
     grid-column: span 2;
-    box-shadow: -10px -10px 0 0 var(--main);
+    box-shadow: -10px -10px 0 0 $main;
     border-radius: 15px;
   }
 

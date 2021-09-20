@@ -1,0 +1,20 @@
+@import "./../../variables.scss";
+
+.pageHeader {
+  grid-column: span 2;
+  margin-bottom: 20px;
+}
+
+.pageHeaderLogo path {
+  fill: $main;
+}
+
+.pageHeaderLogo {
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}

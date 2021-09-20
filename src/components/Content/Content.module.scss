@@ -1,0 +1,50 @@
+@import "./../../variables.scss";
+
+.content {
+  grid-column: span 2;
+}
+
+.content h1 {
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 42px;
+}
+
+.content p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.content span {
+  font-weight: 900;
+}
+
+.content a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  margin-bottom: 25px;
+  text-decoration: none;
+  background-color: $main;
+  color: $basic_white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 0px $main;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.iconPlay path {
+  fill: $basic_white;
+}
