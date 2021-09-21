@@ -12,7 +12,7 @@ class List extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8900/items") //items.json
+    fetch("http://localhost:8900/items") //radios.json
       .then(res => res.json())
       .then(
         (result) => {
@@ -22,8 +22,6 @@ class List extends React.Component {
             items: result
           });
         },
-        // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
-        // чтобы не перехватывать исключения из ошибок в самих компонентах.
         (error) => {
           this.setState({
             isLoaded: true,
@@ -46,11 +44,9 @@ class List extends React.Component {
             <Radio id={item.id} name={item.name} value={item.value} checked={item.checked} disabled={item.disabled} />
           ))}
         </div>
-
-
       );
     }
   }
 }
 
-export default List; //отрисовываю в футере
+export default List;

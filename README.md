@@ -69,4 +69,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-* Исполнитель: [Павел Пригарницкий](https://up.htmlacademy.ru/adaptive/22/user/638417).
+* Исполнитель: [Павел Пригарницкий](https://www.facebook.com/pasha.prigarnitskyy/).
