@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "id": "choise1",
+      "name": "investment",
+      "value": "Да"
+    },
+    {
+      "id": "choise2",
+      "name": "investment",
+      "value": "Нет",
+      "checked": "checked"
+    },
+    {
+      "id": "choise3",
+      "name": "investment2",
+      "value": "Yes",
+      "checked": "checked",
+      "disabled": "disabled"
+    },
+    {
+      "id": "choise4",
+      "name": "investment2",
+      "value": "No",
+      "disabled": "disabled"
+    }
+
+  ]
+}
