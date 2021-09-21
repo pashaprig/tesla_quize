@@ -6,9 +6,11 @@ import { ReactComponent as Logo } from './../../img/logo.svg';
 const Header = () => {
   return (
     <header className={s.pageHeader}>
-      <NavLink to='/index'>
-        <Logo className={s.pageHeaderLogo} width='152' height='19' alt='logo' />
-      </NavLink>
+      <div className={s.logoWrapper}>
+        <NavLink to='/index'>
+          <Logo className={s.pageHeaderLogo} width='152' height='19' alt='logo' />
+        </NavLink>
+      </div>
     </header>);
 }
 

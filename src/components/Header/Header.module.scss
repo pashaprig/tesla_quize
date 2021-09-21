@@ -1,8 +1,11 @@
 @import "./../../variables.scss";
 
-.pageHeader {
-  grid-column: span 2;
-  margin-bottom: 20px;
+.logoWrapper {
+  display: inline-block;
+  
+  &:hover path {
+    fill: $main_active;
+  }
 }
 
 .pageHeaderLogo path {
@@ -10,10 +13,6 @@
 }
 
 .pageHeaderLogo {
-  &:hover {
-    opacity: 0.8;
-  }
-
   &:active {
     opacity: 0.6;
   }
