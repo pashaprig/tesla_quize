@@ -1,4 +1,13 @@
-.page-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+@import './../../variables.scss';
+
+.pageMain {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $desktop-width) {
+    flex-direction: row;
+    gap: 32px;
+    padding-right: 30px;
+    padding-left: 30px;
   }
+}

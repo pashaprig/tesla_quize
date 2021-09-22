@@ -1,0 +1,11 @@
+@import "./../../variables.scss";
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 45px;
+
+  @media (min-width: $desktop-width) {
+    gap: 16px;
+  }
+}

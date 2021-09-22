@@ -5,7 +5,7 @@ import Content from './../Content/Content';
 
 const MainBlock = () => {
   return (
-    <section className={s.main}>
+    <section className={s.pageMain}>
       <Hero />
       <Content />
     </section>
