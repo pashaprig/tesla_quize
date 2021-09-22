@@ -1,11 +1,11 @@
 import React from 'react';
 import s from './Form.module.scss';
-import List from '../List/List';
+import RarioGroupe from '../RarioGroupe/RarioGroupe';
 
 const Form = () => {
     return (
         <div className={s.form}>
-            <List />
+            <RarioGroupe />
         </div>
     );
 }

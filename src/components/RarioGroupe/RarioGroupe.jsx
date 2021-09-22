@@ -1,7 +1,7 @@
 import React from 'react';
 import Radio from '../Radio/Radio';
 
-class List extends React.Component {
+class RarioGroupe extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,7 +41,7 @@ class List extends React.Component {
       return (
         <div>
           {items.map(item => (
-            <Radio id={item.id} name={item.name} value={item.value} checked={item.checked} disabled={item.disabled} />
+            <Radio key={item.id} id={item.id} name={item.name} value={item.value} checked={item.checked} disabled={item.disabled} />
           ))}
         </div>
       );
@@ -49,4 +49,4 @@ class List extends React.Component {
   }
 }
 
-export default List;
+export default RarioGroupe;
