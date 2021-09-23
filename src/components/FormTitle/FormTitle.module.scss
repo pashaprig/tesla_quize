@@ -1,0 +1,14 @@
+@import './../../variables.scss';
+
+.title {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgrey;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.title img {
+  vertical-align: middle;
+}

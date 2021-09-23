@@ -1,26 +1,28 @@
 import React from 'react';
 import Radio from '../Radio/Radio';
-import s from './RadioGroupe.module.scss'
+import s from './RadioGroupe.module.scss';
+const URL = 'https://arbcrm.site/rest/quiz/view?id=2';
+const INPUT_NAME = 'quiz'
 
-class RarioGroupe extends React.Component {
+class RadioGroupe extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      quiz: []
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:8900/items") //radios.json
+    fetch(URL)
       .then(res => res.json())
       .then(
         (result) => {
 
           this.setState({
             isLoaded: true,
-            items: result
+            quiz: result.Questions
           });
         },
         (error) => {
@@ -33,16 +35,17 @@ class RarioGroupe extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, quiz } = this.state;
     if (error) {
       return <div>Ошибка: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Загрузка...</div>;
     } else {
+      console.log(quiz[0].Answers);
       return (
         <div className={s.form}>
-          {items.map(item => (
-            <Radio key={item.id} id={item.id} name={item.name} value={item.value} checked={item.checked} disabled={item.disabled} />
+          {quiz[0].Answers.map(item => (
+            <Radio key={item} id={item} name={INPUT_NAME} value={item} checked={item.checked} disabled={item.disabled} />
           ))}
         </div>
       );
@@ -50,4 +53,4 @@ class RarioGroupe extends React.Component {
   }
 }
 
-export default RarioGroupe;
+export default RadioGroupe;
