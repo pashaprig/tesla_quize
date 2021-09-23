@@ -9,6 +9,11 @@
   line-height: 21px;
 }
 
-.title img {
+.iconArrow {
   vertical-align: middle;
+
+  & path {
+    fill: $main;
+  }
 }
+

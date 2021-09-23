@@ -1,15 +1,59 @@
 import React from 'react';
 import s from './FormTitle.module.scss';
+import { ReactComponent as IconArrow } from './../../img/iconArrow.svg';
+const URL = 'https://arbcrm.site/rest/quiz/view?id=2';
 
-const FormTitle = () => {
-  return (
-    <form className={s.modalWrapper} action='' method='POST'>
-      <div className={s.title}>
-        <span className='contentColor'>1 <img src='https://r.oldcrm.site/tesla+pl/pl(quiz)/img/icon-arrow_right.svg' alt=''></img></span>
-        <span>Вы раньше инвестировали в проекты <span className='contentColor'>Tesla </span> ?</span>
-      </div>
-    </form>
-  );
+class FormTitle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      quiz: []
+    };
+  }
+
+  componentDidMount() {
+    fetch(URL)
+      .then(res => res.json())
+      .then(
+        (result) => {
+
+          this.setState({
+            isLoaded: true,
+            quiz: result.Questions
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
+  render() {
+    const { error, isLoaded, quiz } = this.state;
+    if (error) {
+      return <div>Ошибка: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Загрузка...</div>;
+    } else {
+      const arrayNumber = (quiz[0].position - 1); //Как правильно подобрать номер Questions?
+      return (
+        <div>
+          <div className={s.title}>
+            <div>
+              <span className='contentColor'>{quiz[arrayNumber].position + ` `}<IconArrow className={s.iconArrow} width='24' height='24' aria-label='Стрелка вправо' /></span>
+              <span>{quiz[arrayNumber].question}</span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
 }
+
 
 export default FormTitle;
