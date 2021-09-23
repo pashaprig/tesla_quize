@@ -1,15 +1,16 @@
 @import './../../variables.scss';
 
 .hero {
-    box-shadow: -10px -10px 0 0 $main;
-    border-radius: 15px;
-
     @media (min-width: $desktop-width) {
       width: 50%;
-      box-shadow: -20px -20px 0 0 $main;
     }
   }
 
 .hero img {
   border-radius: 15px;
+  box-shadow: -10px -10px 0 0 $main;
+
+  @media (min-width: $desktop-width) {
+    box-shadow: -20px -20px 0 0 $main;
+  }
 }

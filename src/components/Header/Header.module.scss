@@ -1,13 +1,22 @@
 @import "./../../variables.scss";
 
+.pageHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 0;
+  }
+}
+
 .logoWrapper {
   display: inline-block;
 
   @media (min-width: $desktop-width) {
-    margin-top: 30px;
     margin-left: 30px;
   }
-  
+
   &:hover path {
     fill: $main_active;
   }
