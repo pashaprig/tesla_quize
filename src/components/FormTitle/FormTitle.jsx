@@ -38,6 +38,9 @@ class FormTitle extends React.Component {
     if (error) {
       return <div>Ошибка: {error.message}</div>;
     } else if (!isLoaded) {
+
+
+
       return <div>Загрузка...</div>;
     } else {
       const arrayNumber = (quiz[0].position - 1); //Как правильно подобрать номер Questions?

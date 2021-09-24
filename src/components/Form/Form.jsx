@@ -11,7 +11,7 @@ const Form = () => {
     <form className={s.form} action='https://echo.htmlacademy.ru' method='POST'>
       <FormTitle />
       <RadioGroupe />
-      <ModalBottom />
+      <ModalBottom url='/modalLast'/>
     </form>
   );
 }
