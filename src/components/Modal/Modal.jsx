@@ -3,12 +3,21 @@ import s from './Modal.module.scss';
 
 import Form from '../Form/Form';
 
-const Modal = () => {
-  return (
-    <div className={s.modalWrapper}>
-      <Form />
-    </div>
-  );
+class Modal extends React.Component {
+  componentDidMount() {
+  }
+  
+  render() {
+    console.log('Modal', this.props.data.Questions)
+    return (
+      <div className={s.modalWrapper}>
+        <Form
+          Questions={this.props.data.Questions[0]}
+        />
+      </div>
+    );
+  }
+
 }
 
 export default Modal;
