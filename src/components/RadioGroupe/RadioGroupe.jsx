@@ -40,12 +40,12 @@ class RadioGroupe extends React.Component {
     } else if (!isLoaded) {
       return <div>Загрузка...</div>;
     } else {
-      const arrayNumber = (quiz[0].position - 1); //Как правильно подобрать номер Questions?
+      const arrayNumber = (quiz[0].position - 1);
       const name =(quiz[arrayNumber].question);
       return (
         <div className={s.form}>
           {quiz[arrayNumber].Answers.map(item => (
-            <Radio key={item} id={item} name={name} value={item} checked={item.checked} disabled={item.disabled} />
+            <Radio key={item} id={item} name={name} value={item} /*checked={item.checked} disabled={item.disabled}*/ />
           ))}
         </div>
       );

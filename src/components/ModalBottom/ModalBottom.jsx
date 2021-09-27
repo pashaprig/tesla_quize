@@ -9,7 +9,7 @@ const ModalBottom = (props) => {
     <div className={s.modalBottom}>
       <IconStatusBar0 width='20' height='20' aria-label='Иконка StatusBar' />
       <span className={s.modalBottomPercent}>0 из 100%</span>
-      <NavLink to='/modalLast'>Далее<IconArrow className={s.iconArrow} width='20' height='20' aria-label='Стрелка вправо' /></NavLink>
+      <NavLink className='submit' id='submit' to='/modalLast'>Далее<IconArrow className={s.iconArrow} width='20' height='20' aria-label='Стрелка вправо' /></NavLink>
     </div>
   );
 }

@@ -7,11 +7,12 @@ import FormTitle from '../FormTitle/FormTitle';
 
 
 const Form = () => {
+
   return (
     <form className={s.form} action='https://echo.htmlacademy.ru' method='POST'>
       <FormTitle />
       <RadioGroupe />
-      <ModalBottom url='/modalLast'/>
+      <ModalBottom url='/modalLast' />
     </form>
   );
 }

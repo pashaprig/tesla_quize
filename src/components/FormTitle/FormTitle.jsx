@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './FormTitle.module.scss';
 import { ReactComponent as IconArrow } from './../../img/iconArrow.svg';
+// import './../../global.js'
 const URL = 'https://arbcrm.site/rest/quiz/view?id=2';
 
 class FormTitle extends React.Component {
@@ -57,6 +58,5 @@ class FormTitle extends React.Component {
     }
   }
 }
-
 
 export default FormTitle;
