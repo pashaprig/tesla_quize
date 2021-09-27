@@ -48,6 +48,7 @@ class App extends React.Component {
     // } else if (!isLoaded) {
     //   return <div>Загрузка...</div>;
     // } else {
+
     return (
       <BrowserRouter>
         <div className="page-wrapper">

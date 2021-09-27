@@ -8,7 +8,6 @@ class Modal extends React.Component {
   }
   
   render() {
-    console.log('Modal', this.props.data.Questions)
     return (
       <div className={s.modalWrapper}>
         <Form

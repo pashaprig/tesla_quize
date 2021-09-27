@@ -7,16 +7,16 @@ import FormTitle from '../FormTitle/FormTitle';
 
 
 const Form = ( props ) => {
-console.log('Form', props)
+
   return (
     <form className={s.form} action='https://echo.htmlacademy.ru' method='POST'>
-      <p>{props.Questions.question}</p>
       <FormTitle 
         title={ props.Questions.question }
         questionNumber={ props.Questions.position }        
       />
       <RadioGroupe 
         Answers={ props.Questions.Answers }
+        name={ props.Questions.question }
       />
       <ModalBottom url='/modalLast' />
     </form>
