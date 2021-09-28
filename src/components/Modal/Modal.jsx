@@ -12,6 +12,7 @@ class Modal extends React.Component {
       <div className={s.modalWrapper}>
         <Form
           Questions={this.props.data.Questions[0]}
+          questionsLength={this.props.data.Questions.length}
         />
       </div>
     );

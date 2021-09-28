@@ -9,6 +9,7 @@ import './App.scss';
 
 const URL = 'https://arbcrm.site/rest/quiz/view?id=2';
 
+
 class App extends React.Component {
 
   constructor(props) {
@@ -18,7 +19,7 @@ class App extends React.Component {
       isLoaded: false,
       quiz: []
     };
-  }  
+  }
 
   componentDidMount() {
 
@@ -40,6 +41,7 @@ class App extends React.Component {
         }
       )
   }
+
 
   render() {
     // const { error, isLoaded, quiz } = this.state;
