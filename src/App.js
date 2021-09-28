@@ -17,8 +17,18 @@ class App extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      quiz: []
+      data: {},
+      currentQuestion: 0
     };
+  }
+
+  onNextButtonClick = () => {
+    console.log( 'onNextButtonClick' );
+    this.setState(
+      {
+        currentQuestion: this.state.currentQuestion + 1,
+      }
+    );
   }
 
   componentDidMount() {
@@ -27,10 +37,10 @@ class App extends React.Component {
       .then(res => res.json())
       .then(
         (result) => {
-
+					console.log( 'fetch', result);
           this.setState({
             isLoaded: true,
-            quiz: result
+            data: result
           });
         },
         (error) => {
@@ -57,23 +67,34 @@ class App extends React.Component {
           <Header />
           <main className='app-wrapper-content'>
             <Route
-              path='/index'
-              render={(props) => (
-                <MainBlock data={this.state.quiz} />
-              )}
+							exact
+              path='/'
+							// component={ MainBlock }
+              render={ () => (
+                <MainBlock data={this.state.data} />
+              ) }
             />
 
             <Route
+							exact
               path='/modal'
-              render={(props) => (
-                <Modal data={this.state.quiz} />
-              )}
+              render={
+								( props ) => {
+									console.log( 'route > modal', this.state.data );
+									return this.state.data.id && <Modal
+                  data={this.state.data }
+                  currentQuestion={ this.state.currentQuestion }
+                  onNextButtonClick={ this.onNextButtonClick }
+                  />
+								}
+              }
             />
 
             <Route
+							exact
               path='/modalLast'
               render={(props) => (
-                <ModalLast data={this.state.quiz} />
+                <ModalLast data={ this.state.data } />
               )}
             />
           </main>

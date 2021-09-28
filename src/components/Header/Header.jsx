@@ -8,7 +8,7 @@ class Header extends React.Component {
     return (
       <header className={s.pageHeader}>
         <div className={s.logoWrapper}>
-          <NavLink to='/index'>
+          <NavLink to='/'>
             <Logo className={s.pageHeaderLogo} width='152' height='19' alt='logo' />
           </NavLink>
         </div>
