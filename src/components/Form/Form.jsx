@@ -31,7 +31,7 @@ const Form = (props) => {
         name={props.Questions.question}
       />
       <ModalBottom url='/modalLast' value={props.questionsLength} />
-      <button>jhdbsn</button>
+      <button>Отправить</button>
     </form>
   );
 }
