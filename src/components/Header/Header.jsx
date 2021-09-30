@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import s from './Header.module.scss';
 import { ReactComponent as Logo } from './../../img/logo.svg';
 
@@ -8,9 +7,7 @@ class Header extends React.Component {
     return (
       <header className={s.pageHeader}>
         <div className={s.logoWrapper}>
-          <NavLink to='/'>
-            <Logo className={s.pageHeaderLogo} width='152' height='19' alt='logo' />
-          </NavLink>
+          <Logo className={s.pageHeaderLogo} width='152' height='19' alt='logo' />
         </div>
       </header>
     );

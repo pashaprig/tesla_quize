@@ -16,18 +16,8 @@
   @media (min-width: $desktop-width) {
     margin-left: 30px;
   }
-
-  &:hover path {
-    fill: $main_active;
-  }
 }
 
 .pageHeaderLogo path {
   fill: $main;
-}
-
-.pageHeaderLogo {
-  &:active {
-    opacity: 0.6;
-  }
 }

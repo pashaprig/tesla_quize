@@ -6,8 +6,10 @@ import s from './StatusBar.module.scss';
 const mainColor = '#e82127';
 const emptyBar = '#a4a4a4';
 
+// Статус бар от сюда: https://codesandbox.io/s/vymm4oln6y?file=/index.js Предварительно установлен командой: npm i react-circular-progressbar -S
+
 const StatusBar = (props) => {
-  console.log('SB', props);
+  console.log('StatusBar', props)
   return (
     <div className={s.wrapper}>
     <CircularProgressbar 

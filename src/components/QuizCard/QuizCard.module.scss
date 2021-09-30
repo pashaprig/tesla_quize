@@ -1,3 +1,77 @@
-.QuizCard{
-    
+@import "./../../variables.scss";
+
+.title {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgrey;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.iconArrowTitle {
+  vertical-align: middle;
+
+  & path {
+    fill: $main;
+  }
+}
+
+.radio {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 45px;
+
+  @media (min-width: $desktop-width) {
+    gap: 16px;
+  }
+}
+
+.modalBottom {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.modalBottomPercent {
+  font-size: 18px;
+  font-weight: 500;
+  color: $text_grey;
+}
+
+.modalBottom a, button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-width: 100px;
+  min-height: 35px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 28px;
+  text-decoration: none;
+  background-color: $main;
+  color: $basic_white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px $main;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.button .span {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.iconArrow path {
+  fill: $basic_white;
 }

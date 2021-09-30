@@ -23,7 +23,8 @@ class App extends React.Component {
   }
 
   onNextButtonClick = () => {
-    console.log( 'onNextButtonClick' );
+    
+    console.log('onNextButtonClick');
     this.setState(
       {
         currentQuestion: this.state.currentQuestion + 1,
@@ -31,13 +32,15 @@ class App extends React.Component {
     );
   }
 
+  
+
   componentDidMount() {
 
     fetch(URL)
       .then(res => res.json())
       .then(
         (result) => {
-					console.log( 'fetch', result);
+          // console.log('fetch', result);
           this.setState({
             isLoaded: true,
             data: result
@@ -67,34 +70,34 @@ class App extends React.Component {
           <Header />
           <main className='app-wrapper-content'>
             <Route
-							exact
+              exact
               path='/'
-							// component={ MainBlock }
-              render={ () => (
+              // component={ MainBlock }
+              render={() => (
                 <MainBlock data={this.state.data} />
-              ) }
+              )}
             />
 
             <Route
-							exact
+              exact
               path='/modal'
               render={
-								( props ) => {
-									console.log( 'route > modal', this.state.data );
-									return this.state.data.id && <Modal
-                  data={this.state.data }
-                  currentQuestion={ this.state.currentQuestion }
-                  onNextButtonClick={ this.onNextButtonClick }
+                (props) => {
+                  // console.log('route > modal', this.state.data);
+                  return this.state.data.id && <Modal
+                    data={this.state.data}
+                    currentQuestion={this.state.currentQuestion}
+                    onNextButtonClick={this.onNextButtonClick}
                   />
-								}
+                }
               }
             />
 
             <Route
-							exact
+              exact
               path='/modalLast'
               render={(props) => (
-                <ModalLast data={ this.state.data } />
+                <ModalLast data={this.state.data} />
               )}
             />
           </main>

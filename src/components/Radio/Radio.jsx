@@ -1,15 +1,25 @@
 import React from 'react';
 import s from './Radio.module.scss';
 
-const Radio = (props) => { 
+class Radio extends React.Component { 
 
+
+// onButtonClick = ( event ) =>{
+//   console.log( 'click', event);
+//   this.props.onNextButtonClick();
+// }
+
+render() {
+console.log(this.props)
   return (    
     <label className={`${s.radio} ${s.option}`}>
-      <input className={s.radio__input} type='radio' id={props.id} name={props.name} value={props.value} defaultChecked={props.checked} disabled={props.disabled}></input>
+      <input onClick={ this.props.onNextButtonClick } className={s.radio__input} type='radio' id={this.props.id} name={this.props.name} value={this.props.value} defaultChecked={this.props.checked} disabled={this.props.disabled}></input>
       <span className={s.radio__box}></span>
-      <span>{props.value}</span>
+      <span>{this.props.value}</span>
     </label>
   );
+}
+
 }
 
 export default Radio;
