@@ -33,8 +33,8 @@ class QuizCard extends React.Component {
         </div>
 
         <div className={s.modalBottom}>
-          <StatusBar value={this.props.currentQuestion} />
-          <span className={s.modalBottomPercent}>{this.props.currentQuestion} / {this.props.questionsNumbers} из 100%</span>
+          <StatusBar value={Math.floor((((this.props.currentQuestion + 1) / this.props.questionsNumbers) * 100) - 2)} />
+          <span className={s.modalBottomPercent}>{Math.floor((((this.props.currentQuestion + 1) / this.props.questionsNumbers) * 100) - 2)} из 100%</span>
           
           <button type='submit'
             onClick={ this.onButtonClick }

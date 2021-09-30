@@ -12,23 +12,23 @@ const StatusBar = (props) => {
   console.log('StatusBar', props)
   return (
     <div className={s.wrapper}>
-    <CircularProgressbar 
-    value={props.value}
-    // text={`${percentage}%`}
+      <CircularProgressbar 
+        value={props.value}
+        // text={`${percentage}%`}
 
-    styles={buildStyles({  
+        styles={buildStyles({  
+        strokeLinecap: "butt",
+        // Text size
+        textSize: '12px', 
 
-      // Text size
-      textSize: '12px', 
-
-      // Colors
-      pathColor: mainColor,
-      textColor: mainColor,
-      trailColor: emptyBar,
-      backgroundColor: mainColor,
-    })}
-   />
-  </div>
+        // Colors
+        pathColor: mainColor,
+        textColor: mainColor,
+        trailColor: emptyBar,
+        backgroundColor: mainColor,
+        })}
+      />
+    </div>
   );
 }
 
