@@ -18,7 +18,8 @@ class App extends React.Component {
       error: null,
       isLoaded: false,
       data: {},
-      currentQuestion: 0
+      currentQuestion: 0,
+      questionsNumbers: []
     };
   }
 
@@ -87,6 +88,7 @@ class App extends React.Component {
                   return this.state.data.id && <Modal
                     data={this.state.data}
                     currentQuestion={this.state.currentQuestion}
+                    questionsNumbers={this.state.questionsNumbers}
                     onNextButtonClick={this.onNextButtonClick}
                   />
                 }

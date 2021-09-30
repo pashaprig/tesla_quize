@@ -15,6 +15,7 @@ class Modal extends React.Component {
         data={ this.props }
         currentQuestion={ this.props.currentQuestion }
         onNextButtonClick={ this.props.onNextButtonClick }
+        questionsNumbers={ this.props.data.Questions.length }
         />
       </div>
     );

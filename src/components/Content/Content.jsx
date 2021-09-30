@@ -6,8 +6,6 @@ import { ReactComponent as IconPlay } from './../../img/iconPlay.svg';
 
 const Content = ( props ) => {
 
-	console.log( 'Content', props );
-
   const START_OF_LAST_WORD = 12
   const firstWord = props.heading1 ? (props.heading1.slice(0,START_OF_LAST_WORD)) : '';
   const lastWord = props.heading1 ? (props.heading1.slice(START_OF_LAST_WORD)) : '';

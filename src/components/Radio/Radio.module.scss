@@ -50,6 +50,12 @@
     background-image: url(./../../img/check.svg);
 }
 
+.radio__input:active + .radio__box {
+    background-color: $main;
+    background-image: url(./../../img/check.svg);
+}
+
+
 // Focused
 
 .radio__input:focus + .radio__box {

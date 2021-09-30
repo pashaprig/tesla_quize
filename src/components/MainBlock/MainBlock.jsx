@@ -4,9 +4,7 @@ import Hero from './../Hero/Hero';
 import Content from './../Content/Content';
 
 class MainBlock extends React.Component {
-  componentDidMount() {
-		console.log( 'MainBlock', this.props.data );
-  }
+  componentDidMount() {}
 
   render() {
     return (

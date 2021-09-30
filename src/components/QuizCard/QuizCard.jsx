@@ -10,7 +10,7 @@ class QuizCard extends React.Component {
   componentDidMount() {
 		console.log( 'QuizCard: componentDidMount:', this.props );
   }
-
+  
   onButtonClick = ( event ) =>{
       console.log( 'click', event);
       this.props.onNextButtonClick();
@@ -34,7 +34,7 @@ class QuizCard extends React.Component {
 
         <div className={s.modalBottom}>
           <StatusBar value={this.props.currentQuestion} />
-          <span className={s.modalBottomPercent}>{this.props.currentQuestion} из 100%</span>
+          <span className={s.modalBottomPercent}>{this.props.currentQuestion} / {this.props.questionsNumbers} из 100%</span>
           
           <button type='submit'
             onClick={ this.onButtonClick }
@@ -46,7 +46,6 @@ class QuizCard extends React.Component {
           <NavLink 
             className='submit' id='submit' to='/modalLast'
             onClick={ this.onButtonClick }
-            disabled={this.props.data.data.Questions[ this.props.currentQuestion].last_question }
             >Далее<IconArrow className={s.iconArrow} width='20' height='20' aria-label='Стрелка вправо' />
           </NavLink>
         </div>
