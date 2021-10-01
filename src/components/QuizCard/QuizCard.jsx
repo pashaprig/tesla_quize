@@ -2,17 +2,22 @@ import React from 'react';
 import s from './QuizCard.module.scss';
 import { ReactComponent as IconArrow } from './../../img/iconArrow.svg';
 import Radio from '../Radio/Radio';
-import { NavLink } from 'react-router-dom';
 import StatusBar from '../StatusBar/StatusBar';
 
 
 class QuizCard extends React.Component {
-  componentDidMount() {
-		console.log( 'QuizCard: componentDidMount:', this.props );
-  }
+  componentDidMount() {}
   
   onButtonClick = ( event ) =>{
-      console.log( 'click', event);
+      
+      // collect all data from state
+      // const objToSubmit = {
+      //   question: this.props.data.data.Questions[ this.props.currentQuestion ].id,
+      // }
+
+      //send axios post request with data
+      
+      // go to next question
       this.props.onNextButtonClick();
   }
 
@@ -36,21 +41,15 @@ class QuizCard extends React.Component {
           <StatusBar value={Math.floor((((this.props.currentQuestion + 1) / this.props.questionsNumbers) * 100) - 2)} />
           <span className={s.modalBottomPercent}>{Math.floor((((this.props.currentQuestion + 1) / this.props.questionsNumbers) * 100) - 2)} из 100%</span>
           
-          <button type='submit'
-            onClick={ this.onButtonClick }
-            disabled={ this.props.data.data.Questions[ this.props.currentQuestion].last_question }
-            ><span className='span'>Далее</span><IconArrow className={s.iconArrow} width='20' height='20' aria-label='Стрелка вправо' />
-          </button>
-          
-          
-          <NavLink 
-            className='submit' id='submit' to='/modalLast'
-            onClick={ this.onButtonClick }
-            >Далее<IconArrow className={s.iconArrow} width='20' height='20' aria-label='Стрелка вправо' />
-          </NavLink>
+          <button 
+            type='submit'
+            onClick={ this.onButtonClick }            
+            >
+              <span className='span'>Далее</span>
+              <IconArrow className={s.iconArrow} width='20' height='20' aria-label='Стрелка вправо' />
+          </button> 
         </div>
       </div>
-
     );
   }
 

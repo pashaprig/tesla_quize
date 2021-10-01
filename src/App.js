@@ -23,17 +23,13 @@ class App extends React.Component {
     };
   }
 
-  onNextButtonClick = () => {
-    
-    console.log('onNextButtonClick');
+  onNextButtonClick = () => {    
     this.setState(
       {
         currentQuestion: this.state.currentQuestion + 1,
       }
     );
-  }
-
-  
+  }  
 
   componentDidMount() {
 
@@ -55,7 +51,6 @@ class App extends React.Component {
         }
       )
   }
-
 
   render() {
     // const { error, isLoaded, quiz } = this.state;
