@@ -5,9 +5,7 @@ import ModalLast from '../ModalLast/ModalLast';
 
 
 class Modal extends React.Component {
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
     
   render() {
     return (

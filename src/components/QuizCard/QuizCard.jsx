@@ -11,9 +11,15 @@ class QuizCard extends React.Component {
   onButtonClick = ( event ) =>{
       
       // collect all data from state
-      // const objToSubmit = {
-      //   question: this.props.data.data.Questions[ this.props.currentQuestion ].id,
-      // }
+      const objToSubmit = {
+        quiz_id: this.props.data.data.Questions[ this.props.currentQuestion ].quiz_id,
+        type: 'visit/click',
+        question_id: this.props.data.data.Questions[ this.props.currentQuestion ].id,
+        question: this.props.data.data.Questions[ this.props.currentQuestion ].question,
+        answer_id: this.props.data.data.Questions[ this.props.currentQuestion ].Answers[ this.props.currentQuestion ],
+        step: this.props.data.data.Questions[ this.props.currentQuestion ].position
+      }
+      console.log('objToSubmit', objToSubmit);
 
       //send axios post request with data
       
