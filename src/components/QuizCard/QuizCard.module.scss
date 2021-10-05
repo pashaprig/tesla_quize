@@ -75,3 +75,7 @@
 .iconArrow path {
   fill: $basic_white;
 }
+
+button[disabled]{
+	opacity: .2;
+}

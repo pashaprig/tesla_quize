@@ -8,7 +8,7 @@ import axios from 'axios';
 class QuizCard extends React.Component {
   constructor(){
     super();
-    this.answearId= null;
+    this.answearId = null;
   }
   componentDidMount() {}
 
@@ -18,7 +18,7 @@ class QuizCard extends React.Component {
       type: 'visit/click', // тут нужно пробрасывать эти значения. Вопрос от каких событий их отлавливать
       question_id: this.props.data.data.Questions[ this.props.currentQuestion ].id,
       question: this.props.data.data.Questions[ this.props.currentQuestion ].question,
-      answer_id: this.props.data.data.Questions[ this.props.currentQuestion ].Answers[ this.props.currentQuestion ], //тут нужно снять с checked. Айди ответа отсутствует
+      answer_id: this.answearId, //тут нужно снять с checked. Айди ответа отсутствует
       step: this.props.data.data.Questions[ this.props.currentQuestion ].position
     }
 
@@ -37,9 +37,10 @@ class QuizCard extends React.Component {
   onNextButtonClick =async( e ) =>{
 
   }
-  onRadioButtonClick = async ( event ) =>{       
-    // collect all data from state
+  onRadioButtonClick = async ( event ) =>{
+		console.log( event.target.value);
 
+		this.answearId = event.target.value;
     const response = await this.submitData();
     console.log('response', response);
 
@@ -60,10 +61,10 @@ class QuizCard extends React.Component {
         <div className={s.radio}>
           {this.props.data.data.Questions[ this.props.currentQuestion].Answers.map(item => (
             <Radio
-              onNextButtonClick={ this.onRadioButtonClick }
-              key={item}
-              id={item}
-              value={item}
+              onRadioClick={ this.onRadioButtonClick }
+              key={ item }
+              // id={item}
+              // value={item}
               item={ item }
               name={this.props.data.data.Questions[ this.props.currentQuestion].question}
               /*checked={item.checked} disabled={item.disabled}*/ />
@@ -73,13 +74,14 @@ class QuizCard extends React.Component {
         <div className={s.modalBottom}>
           <StatusBar value={Math.floor((((this.props.currentQuestion + 1) / this.props.questionsNumbers) * 100) - 2)} />
           <span className={s.modalBottomPercent}>{Math.floor((((this.props.currentQuestion + 1) / this.props.questionsNumbers) * 100) - 2)} из 100%</span>
-          
-          <button 
-            onClick={ this.onNextButtonClick }            
+
+          <button
+            onClick={ this.onNextButtonClick }
+						disabled={ !this.answer_id ? true : false }
             >
               <span className='span'>Далее</span>
               <IconArrow className={s.iconArrow} width='20' height='20' aria-label='Стрелка вправо' />
-          </button> 
+          </button>
         </div>
       </div>
     );
