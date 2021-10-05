@@ -42,12 +42,10 @@ class QuizCard extends React.Component {
 
     const response = await this.submitData();
     console.log('response', response);
-   
 
     // go to next question
     this.props.onNextButtonClick();
   }
-          
 
   render() {
     return (
