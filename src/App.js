@@ -9,9 +9,17 @@ import './App.scss';
 
 const URL = 'https://arbcrm.site/rest/quiz/view?id=2';
 
+// Список для доработки:
+// - Вычиститть мусор от разработчикаЖ подсказки, комментарии...
+// - App.js отработка ошибок для GET
+// - QuizCard доделать отправку данных на сервер
+// - -\\- радио инпуты должны тоже делать сабмит
+// - -\\- нужно отлавливать быьранный радиобаттон
+// - Сделать иконки, манифест...
+// - Добавить описание
+// - Удалить весь закомментированнй код
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -37,7 +45,6 @@ class App extends React.Component {
       .then(res => res.json())
       .then(
         (result) => {
-          // console.log('fetch', result);
           this.setState({
             isLoaded: true,
             data: result
@@ -53,6 +60,7 @@ class App extends React.Component {
   }
 
   render() {
+
     // const { error, isLoaded, quiz } = this.state;
     // if (error) {
     //   return <div>Ошибка: {error.message}</div>;
@@ -68,7 +76,6 @@ class App extends React.Component {
             <Route
               exact
               path='/'
-              // component={ MainBlock }
               render={() => (
                 <MainBlock data={this.state.data} />
               )}
@@ -79,7 +86,6 @@ class App extends React.Component {
               path='/modal'
               render={
                 (props) => {
-                  // console.log('route > modal', this.state.data);
                   return this.state.data.id && <Modal
                     data={this.state.data}
                     currentQuestion={this.state.currentQuestion}
@@ -102,9 +108,7 @@ class App extends React.Component {
         </div>
       </BrowserRouter>
     );
-
   }
-
 }
 
 export default App;

@@ -3,29 +3,36 @@ import s from './QuizCard.module.scss';
 import { ReactComponent as IconArrow } from './../../img/iconArrow.svg';
 import Radio from '../Radio/Radio';
 import StatusBar from '../StatusBar/StatusBar';
-
+import axios from 'axios';
 
 class QuizCard extends React.Component {
   componentDidMount() {}
-  
-  onButtonClick = ( event ) =>{
+  onButtonClick = ( event ) =>{       
       
       // collect all data from state
       const objToSubmit = {
         quiz_id: this.props.data.data.Questions[ this.props.currentQuestion ].quiz_id,
-        type: 'visit/click',
+        type: 'visit/click', // тут нужно пробрасывать эти значения. Вопрос от каких событий их отлавливать
         question_id: this.props.data.data.Questions[ this.props.currentQuestion ].id,
         question: this.props.data.data.Questions[ this.props.currentQuestion ].question,
-        answer_id: this.props.data.data.Questions[ this.props.currentQuestion ].Answers[ this.props.currentQuestion ],
+        answer_id: this.props.data.data.Questions[ this.props.currentQuestion ].Answers[ this.props.currentQuestion ], //тут нужно снять с checked. Айди ответа отсутствует
         step: this.props.data.data.Questions[ this.props.currentQuestion ].position
       }
       console.log('objToSubmit', objToSubmit);
 
-      //send axios post request with data
-      
+      // send axios post request with data  https://axios-http.com/docs/post_example
+      axios.post('https://arbcrm.site/rest/quiz/hit', objToSubmit)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
       // go to next question
       this.props.onNextButtonClick();
-  }
+    }
+          
 
   render() {
     return (
@@ -39,7 +46,7 @@ class QuizCard extends React.Component {
 
         <div className={s.radio}>
           {this.props.data.data.Questions[ this.props.currentQuestion].Answers.map(item => (
-            <Radio onNextButtonClick={ this.props.onNextButtonClick } key={item} id={item} name={this.props.data.data.Questions[ this.props.currentQuestion].question} value={item} /*checked={item.checked} disabled={item.disabled}*/ />
+            <Radio onNextButtonClick={ this.onButtonClick } key={item} id={item} name={this.props.data.data.Questions[ this.props.currentQuestion].question} value={item} /*checked={item.checked} disabled={item.disabled}*/ />
           ))}
         </div>
 
