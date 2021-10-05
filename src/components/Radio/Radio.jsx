@@ -1,19 +1,30 @@
 import React from 'react';
 import s from './Radio.module.scss';
 
-class Radio extends React.Component { 
+class Radio extends React.Component {
   // constructor(){
   //   super();
   // }
   componentDidMount() {
-    console.log( this.props.item)
+    // console.log( this.props.item);
   }
   render() {
-    return (    
+    return (
       <label className={`${s.radio} ${s.option}`}>
-        <input onClick={ this.props.onNextButtonClick } className={s.radio__input} type='radio' id={this.props.id} name={this.props.name} value={this.props.value} defaultChecked={this.props.checked} disabled={this.props.disabled}></input>
+        <input
+					type='radio'
+					onClick={ this.props.onRadioClick }
+					className={s.radio__input}
+					// id={this.props.id}
+					// name={this.props.name}
+					// value={this.props.value}
+					name={ this.props.item }
+					value={ this.props.item }
+					defaultChecked={this.props.checked}
+					disabled={this.props.disabled}></input>
         <span className={s.radio__box}></span>
-        <span>{this.props.value}</span>
+				<span>{this.props.item}</span>
+        {/* <span>{this.props.value}</span> */}
       </label>
     );
   }
