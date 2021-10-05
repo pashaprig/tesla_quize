@@ -2,7 +2,12 @@ import React from 'react';
 import s from './Radio.module.scss';
 
 class Radio extends React.Component { 
-
+  // constructor(){
+  //   super();
+  // }
+  componentDidMount() {
+    console.log( this.props.item)
+  }
   render() {
     return (    
       <label className={`${s.radio} ${s.option}`}>
@@ -15,3 +20,16 @@ class Radio extends React.Component {
 }
 
 export default Radio;
+
+
+
+// const answers = [
+//   {
+//   id: 0,
+//   value: "Yes",
+//   },
+//   {
+//     id: 1,
+//     value: "No",
+//     }
+//   ];

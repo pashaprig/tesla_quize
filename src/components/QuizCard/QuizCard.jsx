@@ -6,32 +6,47 @@ import StatusBar from '../StatusBar/StatusBar';
 import axios from 'axios';
 
 class QuizCard extends React.Component {
+  constructor(){
+    super();
+    this.answearId= null;
+  }
   componentDidMount() {}
-  onButtonClick = ( event ) =>{       
-      
-      // collect all data from state
-      const objToSubmit = {
-        quiz_id: this.props.data.data.Questions[ this.props.currentQuestion ].quiz_id,
-        type: 'visit/click', // тут нужно пробрасывать эти значения. Вопрос от каких событий их отлавливать
-        question_id: this.props.data.data.Questions[ this.props.currentQuestion ].id,
-        question: this.props.data.data.Questions[ this.props.currentQuestion ].question,
-        answer_id: this.props.data.data.Questions[ this.props.currentQuestion ].Answers[ this.props.currentQuestion ], //тут нужно снять с checked. Айди ответа отсутствует
-        step: this.props.data.data.Questions[ this.props.currentQuestion ].position
-      }
-      console.log('objToSubmit', objToSubmit);
 
-      // send axios post request with data  https://axios-http.com/docs/post_example
-      axios.post('https://arbcrm.site/rest/quiz/hit', objToSubmit)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-      // go to next question
-      this.props.onNextButtonClick();
+  submitData(){
+    const objToSubmit = {
+      quiz_id: this.props.data.data.Questions[ this.props.currentQuestion ].quiz_id,
+      type: 'visit/click', // тут нужно пробрасывать эти значения. Вопрос от каких событий их отлавливать
+      question_id: this.props.data.data.Questions[ this.props.currentQuestion ].id,
+      question: this.props.data.data.Questions[ this.props.currentQuestion ].question,
+      answer_id: this.props.data.data.Questions[ this.props.currentQuestion ].Answers[ this.props.currentQuestion ], //тут нужно снять с checked. Айди ответа отсутствует
+      step: this.props.data.data.Questions[ this.props.currentQuestion ].position
     }
+
+    console.log('Submitting data...');
+    // send axios post request with data  https://axios-http.com/docs/post_example
+    axios.post('https://arbcrm.site/rest/quiz/hit', objToSubmit)
+    .then(function (response) {
+      console.log('Data submitted:', response);
+      return response;
+    })
+    .catch(function (error) {
+      console.log('Data submit error:', error);
+    });
+  }
+
+  onNextButtonClick =async( e ) =>{
+
+  }
+  onRadioButtonClick = async ( event ) =>{       
+    // collect all data from state
+
+    const response = await this.submitData();
+    console.log('response', response);
+   
+
+    // go to next question
+    this.props.onNextButtonClick();
+  }
           
 
   render() {
@@ -46,7 +61,14 @@ class QuizCard extends React.Component {
 
         <div className={s.radio}>
           {this.props.data.data.Questions[ this.props.currentQuestion].Answers.map(item => (
-            <Radio onNextButtonClick={ this.onButtonClick } key={item} id={item} name={this.props.data.data.Questions[ this.props.currentQuestion].question} value={item} /*checked={item.checked} disabled={item.disabled}*/ />
+            <Radio
+              onNextButtonClick={ this.onRadioButtonClick }
+              key={item}
+              id={item}
+              value={item}
+              item={ item }
+              name={this.props.data.data.Questions[ this.props.currentQuestion].question}
+              /*checked={item.checked} disabled={item.disabled}*/ />
           ))}
         </div>
 
@@ -55,8 +77,7 @@ class QuizCard extends React.Component {
           <span className={s.modalBottomPercent}>{Math.floor((((this.props.currentQuestion + 1) / this.props.questionsNumbers) * 100) - 2)} из 100%</span>
           
           <button 
-            type='submit'
-            onClick={ this.onButtonClick }            
+            onClick={ this.onNextButtonClick }            
             >
               <span className='span'>Далее</span>
               <IconArrow className={s.iconArrow} width='20' height='20' aria-label='Стрелка вправо' />
