@@ -6,7 +6,8 @@ import ModalLast from '../ModalLast/ModalLast';
 
 class Modal extends React.Component {
   componentDidMount() {}
-    
+
+   
   render() {
     return (
       <div className={s.modalWrapper}>

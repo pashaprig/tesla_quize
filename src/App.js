@@ -27,7 +27,8 @@ class App extends React.Component {
       isLoaded: false,
       data: {},
       currentQuestion: 0,
-      questionsNumbers: []
+      questionsNumbers: [],
+      type: null
     };
   }
 
@@ -35,9 +36,22 @@ class App extends React.Component {
     this.setState(
       {
         currentQuestion: this.state.currentQuestion + 1,
+        type: 'click',
       }
     );
-  }  
+  }
+
+  // catchLoadOnPage = () => {    
+  //   this.setState(
+  //     {
+  //       window.addEventListener("load", function(){
+  //         // ....
+  //     });
+  //     }
+  //   );
+  // }
+
+
 
   componentDidMount() {
 

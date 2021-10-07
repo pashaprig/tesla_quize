@@ -18,7 +18,7 @@ class QuizCard extends React.Component {
       type: 'visit/click', // тут нужно пробрасывать эти значения. Вопрос от каких событий их отлавливать
       question_id: this.props.data.data.Questions[ this.props.currentQuestion ].id,
       question: this.props.data.data.Questions[ this.props.currentQuestion ].question,
-      answer_id: this.answearId, //тут нужно снять с checked. Айди ответа отсутствует
+      answer_id: this.answearId, //Айди ответа отсутствует в JSON
       step: this.props.data.data.Questions[ this.props.currentQuestion ].position
     }
 

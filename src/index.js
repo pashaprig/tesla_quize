@@ -11,6 +11,13 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+const catchLoadOnPage = () => {
+
+  window.addEventListener("load", function () {
+    console.log('index.js Страница загружена');
+  });
+}
+catchLoadOnPage()
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
