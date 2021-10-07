@@ -6,7 +6,7 @@ import MainBlock from "./components/MainBlock/MainBlock";
 import Modal from "./components/Modal/Modal";
 import ModalLast from "./components/ModalLast/ModalLast";
 import "./App.scss";
-
+console.log("test");
 const URL = "https://arbcrm.site/rest/quiz/view?id=2";
 
 // Список для доработки:
