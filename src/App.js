@@ -6,7 +6,6 @@ import MainBlock from "./components/MainBlock/MainBlock";
 import Modal from "./components/Modal/Modal";
 import ModalLast from "./components/ModalLast/ModalLast";
 import "./App.scss";
-console.log("test");
 const URL = "https://arbcrm.site/rest/quiz/view?id=2";
 
 // Список для доработки:
@@ -28,38 +27,17 @@ class App extends React.Component {
       data: {},
       currentQuestion: 0,
       questionsNumbers: [],
-      type: null
+      type: 'visit'
     };
   }
 
-<<<<<<< HEAD
   onNextButtonClick = () => {    
     this.setState(
       {
         currentQuestion: this.state.currentQuestion + 1,
-        type: 'click',
       }
     );
   }
-
-  // catchLoadOnPage = () => {    
-  //   this.setState(
-  //     {
-  //       window.addEventListener("load", function(){
-  //         // ....
-  //     });
-  //     }
-  //   );
-  // }
-
-
-=======
-  onNextButtonClick = () => {
-    this.setState({
-      currentQuestion: this.state.currentQuestion + 1
-    });
-  };
->>>>>>> d4af7f900da10a965bf32c720377372cad04b218
 
   componentDidMount() {
     fetch(URL)
@@ -87,7 +65,7 @@ class App extends React.Component {
     // } else if (!isLoaded) {
     //   return <div>Загрузка...</div>;
     // } else {
-
+      // console.log(this.state)
     return (
       <BrowserRouter>
         <div className="page-wrapper">

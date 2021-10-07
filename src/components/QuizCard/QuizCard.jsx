@@ -9,18 +9,21 @@ class QuizCard extends React.Component {
   constructor(){
     super();
     this.answearId = null;
+    this.type = 'click'
   }
+  
   componentDidMount() {}
-
+  
   submitData(){
     const objToSubmit = {
       quiz_id: this.props.data.data.Questions[ this.props.currentQuestion ].quiz_id,
-      type: 'visit/click', // тут нужно пробрасывать эти значения. Вопрос от каких событий их отлавливать
+      type: this.type, // тут нужно пробрасывать эти значения. Вопрос от каких событий их отлавливать
       question_id: this.props.data.data.Questions[ this.props.currentQuestion ].id,
       question: this.props.data.data.Questions[ this.props.currentQuestion ].question,
       answer_id: this.answearId, //Айди ответа отсутствует в JSON
       step: this.props.data.data.Questions[ this.props.currentQuestion ].position
     }
+    console.log('QuizCard', objToSubmit)
 
     console.log('Submitting data...');
     // send axios post request with data  https://axios-http.com/docs/post_example
@@ -38,7 +41,7 @@ class QuizCard extends React.Component {
 
   }
   onRadioButtonClick = async ( event ) =>{
-		console.log( event.target.value);
+		// console.log( event.target.value);
 
 		this.answearId = event.target.value;
     const response = await this.submitData();
